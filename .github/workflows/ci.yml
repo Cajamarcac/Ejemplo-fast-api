@@ -37,7 +37,7 @@ jobs:
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
           docker push myregistry/myapp:latest
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_test_0 }}
+          DOCKER_USERNAME: ${{ secrets.test_0 }}
           DOCKER_PASSWORD: ${{ secrets.dckr_pat_T4Hp4Z7aMT7GHvKrkPKDGnPXXFs }}
 
           ## docker tag app_image:1.0 fabiocajamarca/app_image:1.0
