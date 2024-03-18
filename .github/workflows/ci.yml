@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - changes_4
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,10 +21,9 @@ jobs:
       - name: Build Docker image
         run: docker build -t app_image:1.0 .
 
-
       # Paso 3: Ejecutar la imagen Docker
       - name: Run Docker container
-        run: docker run -d -p 8000:8000 app_image:1.0 .
+        run: docker run -d -p 8000:8000 app_image:1.0
 
       # Paso 4: Ejecutar pruebas de integración
       - name: Run integration tests
@@ -32,12 +31,11 @@ jobs:
 
       # Paso 5: Empujar la imagen Docker a un registro
       - name: Push Docker image
-        run:
-          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin docker push fabiocajamarca/miapp:1.0
+        run: |
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-          docker push myregistry/myapp:latest
+          docker push fabiocajamarca/app_image:1.0
+          docker push fabiocajamarca/app_image:latest
         env:
           DOCKER_USERNAME: ${{ secrets.test_0 }}
           DOCKER_PASSWORD: ${{ secrets.dckr_pat_T4Hp4Z7aMT7GHvKrkPKDGnPXXFs }}
-
-          ## docker tag app_image:1.0 fabiocajamarca/app_image:1.0
+          
