@@ -13,9 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Instalar pytest
-      - name: Install pytest
-        run: pip install pytest
+      # # Instalar pytest
+      # - name: Install pytest
+      #   run: pip install pytest
 
       # Paso 1: Ejecutar pruebas unitarias
       - name: Run unit tests
