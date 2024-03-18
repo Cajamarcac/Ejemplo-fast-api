@@ -34,7 +34,7 @@ jobs:
       - name: Push Docker image
         run:
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin 
-          docker push fabiocajamarca/miapp:1.0
+          docker push fabiocajamarca/app_image:1.0
         env:
           DOCKER_USERNAME: ${{ secrets.test_0 }}
           DOCKER_PASSWORD: ${{ secrets.dckr_pat_T4Hp4Z7aMT7GHvKrkPKDGnPXXFs }}
