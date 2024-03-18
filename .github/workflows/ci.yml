@@ -21,7 +21,6 @@ jobs:
       - name: Build Docker image
         run: docker build -t app_image:1.0 .
 
-
       # Paso 3: Ejecutar la imagen Docker
       - name: Run Docker container
         run: docker run -d -p 8000:8000 app_image:1.0 .
@@ -34,9 +33,9 @@ jobs:
       - name: Push Docker image
         run:
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin 
-          docker push fabiocajamarca/app_image:1.0
+          docker push fabiocajamarca/application_1:1.0
         env:
-          DOCKER_USERNAME: ${{ secrets.test_0 }}
-          DOCKER_PASSWORD: ${{ secrets.dckr_pat_T4Hp4Z7aMT7GHvKrkPKDGnPXXFs }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
           ## docker tag app_image:1.0 fabiocajamarca/app_image:1.0
