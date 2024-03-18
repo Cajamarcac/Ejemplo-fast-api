@@ -38,4 +38,3 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
-          ## docker tag app_image:1.0 fabiocajamarca/app_image:1.0
