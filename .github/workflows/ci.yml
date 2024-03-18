@@ -33,11 +33,9 @@ jobs:
       - name: Run integration tests
         run: sh integration_testing/curl_testing.sh
 
-      # Paso 5: Empujar la imagen Docker a un registro
-      - name: Push Docker image
-        run: |
-          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin 
-          docker push fabiocajamarca/application_1:1.0
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      
+      #   # Paso 5: Empujar la imagen Docker a un registro
+      # - name: Push Docker image
+      #   run: |
+      #     echo $secret.DOCKER_PASSWORD | docker login -u $fabiocajamarca --password-stdin 
+      #     docker push fabiocajamarca/application_1:1.0
