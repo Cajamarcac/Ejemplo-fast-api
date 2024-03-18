@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Install pytest and other testing dependencies
 RUN pip install --no-cache-dir pytest pytest-cov
 
+# Install faker
+RUN pip install faker
+
 # Copy the rest of the application code to the working directory
 COPY . .
 
