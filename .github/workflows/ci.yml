@@ -1,4 +1,4 @@
-name: CI
+name: Continuous Integration
 
 on:
   push:
@@ -38,4 +38,3 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.test_0 }}
           DOCKER_PASSWORD: ${{ secrets.dckr_pat_T4Hp4Z7aMT7GHvKrkPKDGnPXXFs }}
-          
