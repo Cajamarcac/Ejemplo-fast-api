@@ -1,4 +1,4 @@
-name: Continous Integration
+name: Continuous Integration
 
 on:
   push:
@@ -12,6 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      # Instalar pytest
+      - name: Install pytest
+        run: pip install pytest
 
       # Paso 1: Ejecutar pruebas unitarias
       - name: Run unit tests
@@ -31,10 +35,9 @@ jobs:
 
       # Paso 5: Empujar la imagen Docker a un registro
       - name: Push Docker image
-        run:
+        run: |
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin 
           docker push fabiocajamarca/application_1:1.0
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
