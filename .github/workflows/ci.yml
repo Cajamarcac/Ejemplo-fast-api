@@ -1,4 +1,4 @@
-name: CI
+name: Continous Integration
 
 on:
   push:
@@ -33,8 +33,8 @@ jobs:
       # Paso 5: Empujar la imagen Docker a un registro
       - name: Push Docker image
         run:
-          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin docker push fabiocajamarca/miapp:1.0
-          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin 
+          docker push fabiocajamarca/miapp:1.0
           docker push myregistry/myapp:latest
         env:
           DOCKER_USERNAME: ${{ secrets.test_0 }}
