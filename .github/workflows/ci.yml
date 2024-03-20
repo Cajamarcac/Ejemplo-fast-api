@@ -12,8 +12,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          python-version: '3.9'
+        # No se requiere especificar 'python-version' para la acción de checkout
 
       # Instalar pytest
       #- name: Install pytest
@@ -39,6 +38,7 @@ jobs:
       # Paso 4: Ejecutar pruebas de integración
       - name: Run integration tests
         run: sh integration_testing/curl_testing.sh
+
 
       
       #   # Paso 5: Empujar la imagen Docker a un registro
