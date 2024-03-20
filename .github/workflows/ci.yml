@@ -23,10 +23,6 @@ jobs:
       #- name: Run unit tests
        # run: pytest
 
-      # Instalar unittest
-      - name: Install unittest
-        run: pip install unittest
-
       # Paso 1: Ejecutar pruebas unitarias
       - name: Run unit tests
         run: unittest
