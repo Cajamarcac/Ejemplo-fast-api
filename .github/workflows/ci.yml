@@ -25,7 +25,8 @@ jobs:
 
       # Paso 1: Ejecutar pruebas unitarias
       - name: Run unit tests
-        run: unittest
+        run: python -m unittest discover -s path/to/your/tests
+
 
       # Paso 2: Construir la imagen Docker
       - name: Build Docker image
