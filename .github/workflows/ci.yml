@@ -16,12 +16,20 @@ jobs:
           python-version: '3.9'
 
       # Instalar pytest
-      - name: Install pytest
-        run: pip install pytest
+      #- name: Install pytest
+       # run: pip install pytest
+
+      # Paso 1: Ejecutar pruebas unitarias
+      #- name: Run unit tests
+       # run: pytest
+
+      # Instalar unittest
+      - name: Install unittest
+        run: pip install unittest
 
       # Paso 1: Ejecutar pruebas unitarias
       - name: Run unit tests
-        run: pytest
+        run: unittest
 
       # Paso 2: Construir la imagen Docker
       - name: Build Docker image
