@@ -52,10 +52,12 @@ jobs:
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          
+      - name: Tag Docker image
+        run: docker tag app_image:1.0 fabiocajamarca/application_1:latest
+
       - name: Push Docker image
         run: |
-          docker push fabiocajamarca/application_1:1.0
+          docker push fabiocajamarca/application_1:latest
 
      
       #   # Paso 5: Empujar la imagen Docker a un registro
